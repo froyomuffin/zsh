@@ -46,6 +46,9 @@ alias v="xclip -o -selection clipboard"
 # Clang
 alias cl11="clang++ -std=c++11"
 
+# GCC
+alias g11="g++ -std=c++11"
+
 # Bash habbits
 alias .="source"
 bindkey -v
