@@ -15,6 +15,12 @@ compinit
 
 # Mine
 # =========
+
+# Wrapper to which to verify if commands are available
+function check-cmd {
+    return `which $1 &> /dev/null`
+}
+
 export PS1='[%n@%m %~]$ '
 export VISUAL='vim'
 
@@ -29,13 +35,13 @@ export ANDROID_HOME=/opt/android-sdk
 export TERM=xterm
 
 # Pulseaudio
-[[ -z $(pidof pulseaudio) ]] && echo "Starting pulseaudio" && pulseaudio -D
+check-cmd pulseaudio && [[ -z $(pidof pulseaudio) ]] && echo "Starting pulseaudio" && pulseaudio -D
 
 # X
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+check-cmd startx && [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
 # Start byobu
-[[ -z $(pidof tmux) ]] && echo "Starting byobu" && byobu
+check-cmd byobu && [[ -z $(pidof tmux) ]] && echo "Starting byobu" && byobu
 
 # General Aliases
 ls --version &> /dev/null \
