@@ -25,6 +25,9 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH=$PATH:/home/tw/bin/:/git/toolbox/bin/
 export ANDROID_HOME=/opt/android-sdk
 
+# Urxvt
+export TERM=xterm
+
 # Pulseaudio
 [[ -z $(pidof pulseaudio) ]] && echo "Starting pulseaudio" && pulseaudio -D
 
@@ -35,7 +38,9 @@ export ANDROID_HOME=/opt/android-sdk
 [[ -z $(pidof tmux) ]] && echo "Starting byobu" && byobu
 
 # General Aliases
-alias ls='ls --color=auto'
+ls --version &> /dev/null \
+    && alias ls='ls --color=auto' \
+    || alias ls='ls -G' # GNU vs BSD ls
 alias vi='vim'
 alias open='xdg-open'
 
