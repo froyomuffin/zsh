@@ -50,9 +50,9 @@ ls --version &> /dev/null \
 alias vi='vim'
 alias open='xdg-open'
 
-# Clipboard (xclip)
-alias c="xclip -selection clipboard"
-alias v="xclip -o -selection clipboard"
+# Clipboard (xclip priority)
+check-cmd xclip && alias c="xclip -selection clipboard" && alias v="xclip -o -selection clipboard"
+check-cmd pbcopy && alias c="pbcopy"; check-cmd pbpaste && alias v="pbpaste"
 
 # Clang
 alias cl11="clang++ -std=c++11"
