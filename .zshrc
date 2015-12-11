@@ -29,7 +29,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Add ~/bin to path
 export PATH=$PATH:/home/tw/bin/:/git/toolbox/bin/
-export ANDROID_HOME=/opt/android-sdk
+export ANDROID_HOME=/home/tw/Android/Sdk
 
 # Urxvt
 export TERM=xterm
@@ -56,6 +56,7 @@ check-cmd pbcopy && alias c="pbcopy"; check-cmd pbpaste && alias v="pbpaste"
 
 # Clang
 alias cl11="clang++ -std=c++11"
+alias cl14="clang++ -std=c++14"
 
 # GCC
 alias g11="g++ -std=c++11"
@@ -64,3 +65,6 @@ alias g11="g++ -std=c++11"
 alias .="source"
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+# Some extra environment variables
+. ~/.extravars
