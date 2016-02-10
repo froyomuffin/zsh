@@ -67,4 +67,5 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # Some extra environment variables
-. ~/.extravars
+EXTRAVARSFILE="~/.extravars"
+[[ -e $EXTRAVARSFILE ]] && . $EXTRAVARSFILE
