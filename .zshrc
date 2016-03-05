@@ -41,7 +41,7 @@ check-cmd pulseaudio && [[ -z $(pidof pulseaudio) ]] && echo "Starting pulseaudi
 check-cmd startx && [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
 # Start byobu
-check-cmd byobu && [[ -z $(pidof tmux) ]] && echo "Starting byobu" && byobu
+#check-cmd byobu && [[ -z $(pidof tmux) ]] && echo "Starting byobu" && byobu
 
 # General Aliases
 ls --version &> /dev/null \
@@ -67,5 +67,5 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # Some extra environment variables
-EXTRAVARSFILE="~/.extravars"
-[[ -e $EXTRAVARSFILE ]] && . $EXTRAVARSFILE
+EXTRAVARSFILE='./.extravars'
+[[ -e $EXTRAVARSFILE ]] && . $EXTRAVARSFILE 
