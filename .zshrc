@@ -1,3 +1,6 @@
+# zsh-completion
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -48,7 +51,7 @@ ls --version &> /dev/null \
     && alias ls='ls --color=auto' \
     || alias ls='ls -G' # GNU vs BSD ls
 alias vi='vim'
-alias open='xdg-open'
+check-cmd xdg-open && alias open='xdg-open'
 
 # Clipboard (xclip priority)
 check-cmd xclip && alias c="xclip -selection clipboard" && alias v="xclip -o -selection clipboard"
