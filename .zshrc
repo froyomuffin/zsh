@@ -64,6 +64,10 @@ alias cl14="clang++ -std=c++14"
 # GCC
 alias g11="g++ -std=c++11"
 
+# Word navigation
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
+
 # Bash habbits
 alias .="source"
 bindkey -v
