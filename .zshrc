@@ -101,10 +101,20 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-# Function helper
+# Existence helpers
 function function-exists {
   which $argv[1] > /dev/null 2> /dev/null
   return $?
+}
+
+function dir-exists {
+  test -d $argv[1]
+  return $status
+}
+
+function file-exists {
+  test -e $argv[1]
+  return $status
 }
 
 # Tmux helper
