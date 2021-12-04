@@ -153,6 +153,10 @@ function goto {
   cd $DESTINATION
 }
 
+# Load private configs
+PRIVATE_CONFIG=~/.zsh.private
+file-exists $PRIVATE_CONFIG && source $PRIVATE_CONFIG
+
 # Use more modern equivalent to classic tools
 checked-alias find=fd
 checked-alias ls=exa
