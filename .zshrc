@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/tw/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,8 +97,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="mate $HOME/.zshrc"
+# alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
 
 # Existence helpers
@@ -133,7 +133,7 @@ function checked-alias {
 }
 
 # Lock & Goto
-GOTO_FILE=~/.config/.goto
+GOTO_FILE=$HOME/.config/.goto
 
 function set-goto {
   local DESTINATION="$1"
@@ -154,7 +154,7 @@ function goto {
 }
 
 # Load private configs
-PRIVATE_CONFIG=~/.zsh.private
+PRIVATE_CONFIG=$HOME/.zsh.private
 file-exists $PRIVATE_CONFIG && source $PRIVATE_CONFIG
 
 # Use more modern equivalent to classic tools
@@ -167,7 +167,15 @@ checked-alias c=pbcopy
 checked-alias v=pbpaste
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # FZF File Search with Rg
 function-exists rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --no-ignore --glob "!.git/*"'
+
+# open
+alias open=xdg-open
+
+# Updating some path
+path+=("$HOME/.local/share/gem/ruby/3.0.0/bin")
+path+=("$HOME/bin")
+path+=("$HOME/.local/bin")
