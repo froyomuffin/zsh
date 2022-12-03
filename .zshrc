@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+path+=('/root/.local/share/gem/ruby/3.0.0/bin')
+
+export PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -174,6 +178,8 @@ function-exists rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-ca
 
 # open
 alias open=xdg-open
+
+alias media='cd /data/media/'
 
 # Updating some path
 path+=("$HOME/.local/share/gem/ruby/3.0.0/bin")
