@@ -2,6 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 path+=('/root/.local/share/gem/ruby/3.0.0/bin')
+paht+=('/opt/homebrew/opt/gnu-sed/libexec/gnubin')
+path+=('/home/tw/.cargo/bin')
 
 export PATH
 
@@ -177,7 +179,7 @@ checked-alias v=pbpaste
 function-exists rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --no-ignore --glob "!.git/*"'
 
 # open
-alias open=xdg-open
+checked-alias open=xdg-open
 
 alias media='cd /data/media/'
 
