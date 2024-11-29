@@ -1,6 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+#
+# Updating some path
+path+=("$HOME/.local/bin")
+path+=("$HOME/.local/share/gem/ruby/3.0.0/bin")
+path+=("$HOME/.local/share/gem/ruby/3.2.0/bin")
+path+=("$HOME/.local/share/gem/ruby/3.3.0/bin")
+path+=("$HOME/bin")
 path+=('/root/.local/share/gem/ruby/3.0.0/bin')
 paht+=('/opt/homebrew/opt/gnu-sed/libexec/gnubin')
 path+=('/home/tw/.cargo/bin')
@@ -106,7 +112,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate $HOME/.zshrc"
 # alias ohmyzsh="mate $HOME/.oh-my-zsh"
 
-
 # Existence helpers
 function function-exists {
   which $argv[1] > /dev/null 2> /dev/null
@@ -125,7 +130,7 @@ function file-exists {
 
 # Tmux helper
 function tm {
-  tmux a || tmux
+  [ -z $TMUX ] && tmux a || tmux
 }
 
 # Alias helper
@@ -178,12 +183,14 @@ checked-alias v=pbpaste
 # FZF File Search with Rg
 function-exists rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --no-ignore --glob "!.git/*"'
 
+# Sway helper
+function is-swayfx {
+  sway --version | grep swayfx > /dev/null 2> /dev/null
+  return $?
+}
+
 # open
 checked-alias open=xdg-open
 
 alias media='cd /data/media/'
-
-# Updating some path
-path+=("$HOME/.local/share/gem/ruby/3.0.0/bin")
-path+=("$HOME/bin")
-path+=("$HOME/.local/bin")
+alias reload='cd -; cd -'
